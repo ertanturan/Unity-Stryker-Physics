@@ -1,0 +1,206 @@
+fileFormatVersion: 2
+guid: 605eb9dd57cc7594392dbd39bfb7667e
+timeCreated: 1503912753
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: Gun
+    100002: Gun_Pivot
+    100004: Left_Wheel_1
+    100006: Left_Wheel_1_Pivot
+    100008: Left_Wheel_2
+    100010: Left_Wheel_2_Pivot
+    100012: Left_Wheel_3
+    100014: Left_Wheel_3_Pivot
+    100016: Left_Wheel_4
+    100018: Left_Wheel_4_Pivot
+    100020: Machine_Gun
+    100022: Machine_Gun_Pivot
+    100024: Right_Wheel_1
+    100026: Right_Wheel_1_Pivot
+    100028: Right_Wheel_2
+    100030: Right_Wheel_2_Pivot
+    100032: Right_Wheel_3
+    100034: Right_Wheel_4
+    100036: Right_Wheel_Mesh_3_Pivot
+    100038: Right_Wheel_Mesh_4_Pivot
+    100040: //RootNode
+    100042: Suspension_Left_Wheel_1
+    100044: Suspension_Left_Wheel_2
+    100046: Suspension_Left_Wheel_3
+    100048: Suspension_Left_Wheel_4
+    100050: Suspension_Right_Wheel_1
+    100052: Suspension_Right_Wheel_2
+    100054: Suspension_Right_Wheel_3
+    100056: Suspension_Right_Wheel_4
+    100058: Turret
+    100060: Turret_Pivot
+    400000: Gun
+    400002: Gun_Pivot
+    400004: Left_Wheel_1
+    400006: Left_Wheel_1_Pivot
+    400008: Left_Wheel_2
+    400010: Left_Wheel_2_Pivot
+    400012: Left_Wheel_3
+    400014: Left_Wheel_3_Pivot
+    400016: Left_Wheel_4
+    400018: Left_Wheel_4_Pivot
+    400020: Machine_Gun
+    400022: Machine_Gun_Pivot
+    400024: Right_Wheel_1
+    400026: Right_Wheel_1_Pivot
+    400028: Right_Wheel_2
+    400030: Right_Wheel_2_Pivot
+    400032: Right_Wheel_3
+    400034: Right_Wheel_4
+    400036: Right_Wheel_Mesh_3_Pivot
+    400038: Right_Wheel_Mesh_4_Pivot
+    400040: //RootNode
+    400042: Suspension_Left_Wheel_1
+    400044: Suspension_Left_Wheel_2
+    400046: Suspension_Left_Wheel_3
+    400048: Suspension_Left_Wheel_4
+    400050: Suspension_Right_Wheel_1
+    400052: Suspension_Right_Wheel_2
+    400054: Suspension_Right_Wheel_3
+    400056: Suspension_Right_Wheel_4
+    400058: Turret
+    400060: Turret_Pivot
+    2300000: Gun
+    2300002: Left_Wheel_1
+    2300004: Left_Wheel_2
+    2300006: Left_Wheel_3
+    2300008: Left_Wheel_4
+    2300010: Machine_Gun
+    2300012: Right_Wheel_1
+    2300014: Right_Wheel_2
+    2300016: Right_Wheel_3
+    2300018: Right_Wheel_4
+    2300020: //RootNode
+    2300022: Suspension_Left_Wheel_1
+    2300024: Suspension_Left_Wheel_2
+    2300026: Suspension_Left_Wheel_3
+    2300028: Suspension_Left_Wheel_4
+    2300030: Suspension_Right_Wheel_1
+    2300032: Suspension_Right_Wheel_2
+    2300034: Suspension_Right_Wheel_3
+    2300036: Suspension_Right_Wheel_4
+    2300038: Turret
+    3300000: Gun
+    3300002: Left_Wheel_1
+    3300004: Left_Wheel_2
+    3300006: Left_Wheel_3
+    3300008: Left_Wheel_4
+    3300010: Machine_Gun
+    3300012: Right_Wheel_1
+    3300014: Right_Wheel_2
+    3300016: Right_Wheel_3
+    3300018: Right_Wheel_4
+    3300020: //RootNode
+    3300022: Suspension_Left_Wheel_1
+    3300024: Suspension_Left_Wheel_2
+    3300026: Suspension_Left_Wheel_3
+    3300028: Suspension_Left_Wheel_4
+    3300030: Suspension_Right_Wheel_1
+    3300032: Suspension_Right_Wheel_2
+    3300034: Suspension_Right_Wheel_3
+    3300036: Suspension_Right_Wheel_4
+    3300038: Turret
+    4300000: Stryker
+    4300002: Suspension_Right_Wheel_4
+    4300004: Right_Wheel_4
+    4300006: Suspension_Right_Wheel_3
+    4300008: Right_Wheel_3
+    4300010: Suspension_Right_Wheel_2
+    4300012: Right_Wheel_2
+    4300014: Suspension_Right_Wheel_1
+    4300016: Right_Wheel_1
+    4300018: Suspension_Left_Wheel_4
+    4300020: Left_Wheel_4
+    4300022: Suspension_Left_Wheel_3
+    4300024: Left_Wheel_3
+    4300026: Suspension_Left_Wheel_2
+    4300028: Left_Wheel_2
+    4300030: Suspension_Left_Wheel_1
+    4300032: Left_Wheel_1
+    4300034: Machine_Gun
+    4300036: Gun
+    4300038: Turret
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 1
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
