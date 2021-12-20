@@ -7,9 +7,11 @@ namespace Input
         #region Fields
 
         protected float _Forward = 0f;
-
+        protected float _Yaw=0f;
         protected float _Brake = 0f;
         protected float ThrottleSpeed = 0.06f;
+        public float SteerSmoothSpeed;
+
         [SerializeField] private KeyCode _brakeKey = KeyCode.Space;
 
         [SerializeField] private KeyCode _cameraKey = KeyCode.X;
@@ -27,6 +29,11 @@ namespace Input
         public float Brake
         {
             get { return _Brake; }
+        }
+
+        public float Yaw
+        {
+            get { return _Yaw; }
         }
 
 
@@ -56,7 +63,7 @@ namespace Input
             //Brakes
             _Brake = Input.GetKey(_brakeKey) ? 1f : 0f;
 
-
+            _Yaw = Input.GetAxis("Horizontal");
             _CameraSwitch = Input.GetKeyDown(_cameraKey);
         }
 
