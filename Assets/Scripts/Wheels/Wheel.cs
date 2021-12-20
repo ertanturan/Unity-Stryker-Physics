@@ -2,6 +2,8 @@ using UnityEngine;
 
 namespace Wheels
 {
+    using Input;
+
     [RequireComponent(typeof(WheelCollider))]
     public class Wheel : MonoBehaviour
     {
@@ -14,12 +16,7 @@ namespace Wheels
             WheelCollider.motorTorque = .00000000000001f;
         }
 
-        private void FixedUpdate()
-        {
-            HandleWheel();
-        }
-
-        protected virtual void HandleWheel()
+        public virtual void HandleWheel(BaseVehicleInput input)
         {
             if (_targetTransform)
             {

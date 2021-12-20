@@ -1,30 +1,29 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
-public abstract class BaseRigidbodyController : MonoBehaviour
+namespace PhysicsController
 {
-    protected Rigidbody Rigidbody;
-    [SerializeField] private Transform _centerOfMass;
-
-    protected virtual void Awake()
+    [RequireComponent(typeof(Rigidbody))]
+    public abstract class BaseRigidbodyController : MonoBehaviour
     {
-        Rigidbody = GetComponent<Rigidbody>();
-    }
+        protected Rigidbody Rigidbody;
+        [SerializeField] private Transform _centerOfMass;
 
-    // Start is called before the first frame update
-    protected virtual     void Start()
-    {
-        Rigidbody.centerOfMass = _centerOfMass.position;
-    }
+        protected virtual void Awake()
+        {
+            Rigidbody = GetComponent<Rigidbody>();
+        }
 
-    protected virtual void FixedUpdate()
-    {
-        HandlePhysics();
-    }
+        // Start is called before the first frame update
+        protected virtual void Start()
+        {
+            Rigidbody.centerOfMass = _centerOfMass.position;
+        }
 
-    protected abstract void HandlePhysics();
-    
+        protected virtual void FixedUpdate()
+        {
+            HandlePhysics();
+        }
+
+        protected abstract void HandlePhysics();
+    }
 }

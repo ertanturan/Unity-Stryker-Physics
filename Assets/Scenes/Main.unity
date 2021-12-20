@@ -627,7 +627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _centerOfMass: {fileID: 776055638}
-  _throttleCOEF: 500
+  _throttleCoef: 750
 --- !u!65 &269608340
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2003,10 +2003,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 809469952}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e27309311ca303840b771bcf02f4ea22, type: 3}
+  m_Script: {fileID: 11500000, guid: dddce42eb8eadc14b897bdaf8edbabb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _targetTransform: {fileID: 4791425989574288}
+  _breakingPower: 2000
 --- !u!146 &809469955
 WheelCollider:
   m_ObjectHideFlags: 0
@@ -2173,10 +2174,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 818305617}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e27309311ca303840b771bcf02f4ea22, type: 3}
+  m_Script: {fileID: 11500000, guid: dddce42eb8eadc14b897bdaf8edbabb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _targetTransform: {fileID: 4079552447518432}
+  _breakingPower: 2000
 --- !u!146 &818305620
 WheelCollider:
   m_ObjectHideFlags: 0
@@ -3587,10 +3589,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1379183397}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e27309311ca303840b771bcf02f4ea22, type: 3}
+  m_Script: {fileID: 11500000, guid: dddce42eb8eadc14b897bdaf8edbabb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _targetTransform: {fileID: 4335416520133622}
+  _breakingPower: 2000
 --- !u!146 &1379183400
 WheelCollider:
   m_ObjectHideFlags: 0
@@ -4105,10 +4108,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1670753992}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e27309311ca303840b771bcf02f4ea22, type: 3}
+  m_Script: {fileID: 11500000, guid: dddce42eb8eadc14b897bdaf8edbabb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _targetTransform: {fileID: 4961193824912702}
+  _breakingPower: 2000
 --- !u!146 &1670753995
 WheelCollider:
   m_ObjectHideFlags: 0
@@ -6512,8 +6516,9 @@ GameObject:
   - component: {fileID: 23645528883916842}
   - component: {fileID: 269608304}
   - component: {fileID: 269608340}
-  - component: {fileID: 269608306}
+  - component: {fileID: 1409000805991082}
   - component: {fileID: 1409000805991081}
+  - component: {fileID: 269608306}
   m_Layer: 0
   m_Name: Stryker
   m_TagString: Untagged
@@ -6535,6 +6540,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _brakeKey: 32
   _cameraKey: 120
+--- !u!114 &1409000805991082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409000805991080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d42abefb687f2345a8664cde65d30e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1445394757093878
 GameObject:
   m_ObjectHideFlags: 0
