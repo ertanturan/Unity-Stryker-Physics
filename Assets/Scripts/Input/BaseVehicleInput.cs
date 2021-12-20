@@ -9,8 +9,7 @@ namespace Input
         protected float _Forward = 0f;
         protected float _Yaw=0f;
         protected float _Brake = 0f;
-        protected float ThrottleSpeed = 0.06f;
-        public float SteerSmoothSpeed;
+        protected float ForwardSpeed = 0.03f;
 
         [SerializeField] private KeyCode _brakeKey = KeyCode.Space;
 

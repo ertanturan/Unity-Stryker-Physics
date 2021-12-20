@@ -627,7 +627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _centerOfMass: {fileID: 776055638}
-  _throttleCoef: 500
+  _throttleCoef: 750
 --- !u!65 &269608340
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6538,7 +6538,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 502a1b1c369ddaf489122b70a1e549c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SteerSmoothSpeed: 0.5
   _brakeKey: 32
   _cameraKey: 120
 --- !u!114 &1409000805991082
