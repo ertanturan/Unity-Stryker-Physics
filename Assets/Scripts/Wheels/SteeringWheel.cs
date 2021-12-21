@@ -5,9 +5,9 @@ namespace Wheels
 
     public class SteeringWheel : Wheel
     {
-        private float _steerSmoothSpeed=0.5f;
+        private float _steerSmoothSpeed=0.35f;
 
-        protected float SteeringAngle = 25;
+        protected float SteeringAngle = 20;
         private float _smoothSteerAngle = 2f;
         
         public override void HandleWheel(BaseVehicleInput input)

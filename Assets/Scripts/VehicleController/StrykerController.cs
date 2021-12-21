@@ -5,6 +5,8 @@ namespace VehicleController
 
     public class StrykerController : BaseVehicleController
     {
+        public const int SPEED_COEF = 10;
+
         public float MaxSpeedInKmh
         {
             get { return _maxSpeedInKmh; }
@@ -14,6 +16,7 @@ namespace VehicleController
 
         [SerializeField] private float _maxSpeedInKmh = 125f;
 
+        
         // [SerializeField] private float _speedInKmh = 0;
 
 
@@ -29,15 +32,13 @@ namespace VehicleController
         protected override void FixedUpdate()
         {
             base.FixedUpdate();
-            if (_speedInKmh <= _maxSpeedInKmh)
-            {
-                _speedInKmh = CalculateSpeedInKmh();
-            }
+
+            _speedInKmh = CalculateSpeedInKmh();
         }
 
         private float CalculateSpeedInKmh()
         {
-            return BaseRigidbodyController.Rigidbody.velocity.magnitude * 10;
+            return BaseRigidbodyController.Rigidbody.velocity.magnitude * SPEED_COEF;
         }
     }
 }

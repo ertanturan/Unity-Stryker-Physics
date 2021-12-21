@@ -13,7 +13,7 @@ namespace PhysicsController
         [SerializeField] private float _throttleCoef = 100f;
         protected BaseVehicleInput _BaseVehicleInput;
         protected StrykerController _StrykerController;
-
+        public bool isIncreasing = false;
 
         protected override void Awake()
         {
@@ -30,6 +30,7 @@ namespace PhysicsController
                 HandleForwardForce();
                 HandleWheels();
                 HandleAntiTurn();
+                HandleVelocity();
             }
             else
             {
@@ -39,10 +40,9 @@ namespace PhysicsController
 
         private void HandleForwardForce()
         {
-            if (_StrykerController.SpeedInKmh <= _StrykerController.MaxSpeedInKmh)
-            {
-                Rigidbody.AddRelativeForce(transform.forward * (_BaseVehicleInput.Forward * _throttleCoef));
-            }
+            Vector3 forceToAdd = transform.forward * (_BaseVehicleInput.Forward * _throttleCoef * Time.fixedDeltaTime);
+            Rigidbody.AddForce(forceToAdd, ForceMode.Force);
+            isIncreasing = true;
         }
 
         private void HandleWheels()
@@ -79,20 +79,20 @@ namespace PhysicsController
                           wheelRight.suspensionDistance;
             }
 
-            float antiRollForce = (travelL - travelR) / 5;
+            float antiRollForce = (travelL - travelR)*125;
 
             if (groundedLeft)
             {
                 var transform1 = wheelLeft.transform;
-                Rigidbody.AddForceAtPosition(transform1.up / 5 * -antiRollForce,
-                    transform1.position);
+                Rigidbody.AddForceAtPosition(transform1.up * -antiRollForce,
+                    transform1.position, ForceMode.Impulse);
             }
 
             if (groundedRight)
             {
                 var transform1 = wheelRight.transform;
-                Rigidbody.AddForceAtPosition(transform1.up / 5 * antiRollForce,
-                    transform1.position);
+                Rigidbody.AddForceAtPosition(transform1.up * antiRollForce,
+                    transform1.position, ForceMode.Impulse);
             }
         }
 
@@ -108,6 +108,15 @@ namespace PhysicsController
             for (int i = 0; i < _StrykerController.Wheels.Count; i++)
             {
                 _StrykerController.Wheels[i].ResetWheel();
+            }
+        }
+
+        private void HandleVelocity()
+        {
+            if (_StrykerController.SpeedInKmh > _StrykerController.MaxSpeedInKmh)
+            {
+                Rigidbody.velocity = Rigidbody.velocity.normalized * _StrykerController.MaxSpeedInKmh /
+                                     StrykerController.SPEED_COEF;
             }
         }
     }
