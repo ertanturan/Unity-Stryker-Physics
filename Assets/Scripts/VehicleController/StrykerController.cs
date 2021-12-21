@@ -5,6 +5,7 @@ namespace VehicleController
 
     public class StrykerController : BaseVehicleController
     {
+        [SerializeField] private float _maxSpeedInKmh = 125f;
         [SerializeField] private float _speedInKmh = 0;
         private Vector3 _currentPosition;
 

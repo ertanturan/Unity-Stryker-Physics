@@ -40,6 +40,8 @@ namespace PhysicsController
         {
             Rigidbody.AddRelativeForce(transform.forward * _BaseVehicleInput.Forward * _throttleCoef);
         }
+        
+        
 
         private void HandleWheels()
         {
@@ -60,16 +62,16 @@ namespace PhysicsController
             WheelCollider wheelLeft = _StrykerController.Wheels[0].WheelCollider;
             WheelCollider wheelRight = _StrykerController.Wheels[4].WheelCollider;
 
-            var groundedL = wheelLeft.GetGroundHit(out hit);
+            var groundedLeft = wheelLeft.GetGroundHit(out hit);
 
-            if (groundedL)
+            if (groundedLeft)
             {
                 travelL = (-wheelLeft.transform.InverseTransformPoint(hit.point).y - wheelLeft.radius) /
                           wheelLeft.suspensionDistance;
             }
 
-            var groundedR = wheelRight.GetGroundHit(out hit);
-            if (groundedR)
+            var groundedRight = wheelRight.GetGroundHit(out hit);
+            if (groundedRight)
             {
                 travelR = (-wheelRight.transform.InverseTransformPoint(hit.point).y - wheelRight.radius) /
                           wheelRight.suspensionDistance;
@@ -77,14 +79,14 @@ namespace PhysicsController
 
             float antiRollForce = (travelL - travelR)/5;
 
-            if (groundedL)
+            if (groundedLeft)
             {
                 var transform1 = wheelLeft.transform;
                 Rigidbody.AddForceAtPosition(transform1.up /5* -antiRollForce,
                     transform1.position);
             }
 
-            if (groundedR)
+            if (groundedRight)
             {
                 var transform1 = wheelRight.transform;
                 Rigidbody.AddForceAtPosition(transform1.up/5 * antiRollForce,
