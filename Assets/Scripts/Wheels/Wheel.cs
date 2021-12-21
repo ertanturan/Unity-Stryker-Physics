@@ -18,7 +18,7 @@ namespace Wheels
 
         public virtual void HandleWheel(BaseVehicleInput input)
         {
-            if (_targetTransform)
+            if (_targetTransform && WheelCollider.isGrounded)
             {
                 WheelCollider.GetWorldPose(out Vector3 position, out Quaternion rotation);
 
