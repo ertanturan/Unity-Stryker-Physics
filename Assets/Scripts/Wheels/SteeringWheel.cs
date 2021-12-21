@@ -7,7 +7,7 @@ namespace Wheels
     {
         private float _steerSmoothSpeed=0.5f;
 
-        protected float SteeringAngle=15;
+        protected float SteeringAngle = 25;
         private float _smoothSteerAngle = 2f;
         
         public override void HandleWheel(BaseVehicleInput input)

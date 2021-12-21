@@ -13,7 +13,7 @@ namespace Wheels
         private void Awake()
         {
             WheelCollider = GetComponent<WheelCollider>();
-            WheelCollider.motorTorque = .00000000000001f;
+            ResetMotorTorque();
         }
 
         public virtual void HandleWheel(BaseVehicleInput input)
@@ -25,6 +25,22 @@ namespace Wheels
                 _targetTransform.rotation = rotation;
                 _targetTransform.position = position;
             }
+        }
+
+        public virtual void ResetWheel()
+        {
+            ResetMotorTorque();
+            ResetBrakeTorque();
+        }
+
+        private void ResetMotorTorque()
+        {
+            WheelCollider.motorTorque = .00000000000001f;
+        }
+
+        private void ResetBrakeTorque()
+        {
+            WheelCollider.brakeTorque = 0f;
         }
     }
 }

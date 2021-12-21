@@ -9,7 +9,7 @@ namespace Wheels
     {
         [SerializeField] private float _breakingPower = 5f;
         public bool IsBreaking { get; private set; }
-        
+
         public override void HandleWheel(BaseVehicleInput input)
         {
             base.HandleWheel(input);
@@ -19,8 +19,7 @@ namespace Wheels
             }
             else
             {
-                WheelCollider.brakeTorque = 0f;
-                WheelCollider.motorTorque = .00000000000001f;
+                ResetWheel();
             }
         }
     }
