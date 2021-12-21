@@ -13753,7 +13753,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetTransform: {fileID: 4791425989574288}
-  _breakingPower: 4000
+  _breakingPower: 8000
 --- !u!146 &809469955
 WheelCollider:
   m_ObjectHideFlags: 0
@@ -13924,7 +13924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetTransform: {fileID: 4079552447518432}
-  _breakingPower: 4000
+  _breakingPower: 8000
 --- !u!146 &818305620
 WheelCollider:
   m_ObjectHideFlags: 0
@@ -23268,7 +23268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetTransform: {fileID: 4335416520133622}
-  _breakingPower: 4000
+  _breakingPower: 8000
 --- !u!146 &1379183400
 WheelCollider:
   m_ObjectHideFlags: 0
@@ -28471,7 +28471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetTransform: {fileID: 4961193824912702}
-  _breakingPower: 4000
+  _breakingPower: 8000
 --- !u!146 &1670753995
 WheelCollider:
   m_ObjectHideFlags: 0
@@ -37699,7 +37699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d42abefb687f2345a8664cde65d30e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speedInKmh: 0
+  _maxSpeedInKmh: 125
 --- !u!1 &1445394757093878
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,28 +5,38 @@ namespace VehicleController
 
     public class StrykerController : BaseVehicleController
     {
-        [SerializeField] private float _maxSpeedInKmh = 125f;
-        [SerializeField] private float _speedInKmh = 0;
-        private Vector3 _currentPosition;
-
-        private void Start()
+        public float MaxSpeedInKmh
         {
-            _currentPosition = transform.position;
+            get { return _maxSpeedInKmh; }
+
+            private set { _maxSpeedInKmh = value; }
         }
+
+        [SerializeField] private float _maxSpeedInKmh = 125f;
+
+        // [SerializeField] private float _speedInKmh = 0;
+
+
+        public float SpeedInKmh
+        {
+            get { return _speedInKmh; }
+
+            private set { _speedInKmh = value; }
+        }
+
+        private float _speedInKmh;
 
         protected override void FixedUpdate()
         {
             base.FixedUpdate();
-            _speedInKmh = CalculateSpeedInKmh();
-         
+            if (_speedInKmh <= _maxSpeedInKmh)
+            {
+                _speedInKmh = CalculateSpeedInKmh();
+            }
         }
 
         private float CalculateSpeedInKmh()
         {
-            // Vector3 position = transform.position;
-            // float result = Vector3.Distance(position,_currentPosition) / Time.fixedDeltaTime;
-            // _currentPosition = position;
-            // return result*10;
             return BaseRigidbodyController.Rigidbody.velocity.magnitude * 10;
         }
     }

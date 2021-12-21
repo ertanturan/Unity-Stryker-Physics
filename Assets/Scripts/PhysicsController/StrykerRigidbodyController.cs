@@ -14,6 +14,7 @@ namespace PhysicsController
         protected BaseVehicleInput _BaseVehicleInput;
         protected StrykerController _StrykerController;
 
+
         protected override void Awake()
         {
             base.Awake();
@@ -22,11 +23,11 @@ namespace PhysicsController
             Rigidbody.centerOfMass += new Vector3(0, 0, 1.0f);
         }
 
-        protected override void FixedUpdate()
+        protected override void HandlePhysics()
         {
-            base.FixedUpdate();
             if (!IsStrykerRollderOver())
             {
+                HandleForwardForce();
                 HandleWheels();
                 HandleAntiTurn();
             }
@@ -36,12 +37,13 @@ namespace PhysicsController
             }
         }
 
-        protected override void HandlePhysics()
+        private void HandleForwardForce()
         {
-            Rigidbody.AddRelativeForce(transform.forward * _BaseVehicleInput.Forward * _throttleCoef);
+            if (_StrykerController.SpeedInKmh <= _StrykerController.MaxSpeedInKmh)
+            {
+                Rigidbody.AddRelativeForce(transform.forward * (_BaseVehicleInput.Forward * _throttleCoef));
+            }
         }
-        
-        
 
         private void HandleWheels()
         {
@@ -77,19 +79,19 @@ namespace PhysicsController
                           wheelRight.suspensionDistance;
             }
 
-            float antiRollForce = (travelL - travelR)/5;
+            float antiRollForce = (travelL - travelR) / 5;
 
             if (groundedLeft)
             {
                 var transform1 = wheelLeft.transform;
-                Rigidbody.AddForceAtPosition(transform1.up /5* -antiRollForce,
+                Rigidbody.AddForceAtPosition(transform1.up / 5 * -antiRollForce,
                     transform1.position);
             }
 
             if (groundedRight)
             {
                 var transform1 = wheelRight.transform;
-                Rigidbody.AddForceAtPosition(transform1.up/5 * antiRollForce,
+                Rigidbody.AddForceAtPosition(transform1.up / 5 * antiRollForce,
                     transform1.position);
             }
         }
