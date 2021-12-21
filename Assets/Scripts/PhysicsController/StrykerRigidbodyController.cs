@@ -50,7 +50,8 @@ namespace PhysicsController
             for (int i = 0; i < _StrykerController.Wheels.Count; i++)
             {
                 _StrykerController.Wheels[i].WheelCollider.motorTorque = Mathf.Lerp(
-                    _StrykerController.Wheels[i].WheelCollider.motorTorque, _BaseVehicleInput.Forward * _throttleCoef,
+                    _StrykerController.Wheels[i].WheelCollider.motorTorque,
+                    _BaseVehicleInput.Forward * _throttleCoef,
                     Time.fixedDeltaTime);
             }
         }
@@ -79,7 +80,7 @@ namespace PhysicsController
                           wheelRight.suspensionDistance;
             }
 
-            float antiRollForce = (travelL - travelR)*125;
+            float antiRollForce = (travelL - travelR) * 125;
 
             if (groundedLeft)
             {
