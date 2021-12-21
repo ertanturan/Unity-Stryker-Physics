@@ -16,7 +16,7 @@ namespace PhysicsController
         // Start is called before the first frame update
         protected virtual void Start()
         {
-            Rigidbody.centerOfMass = _centerOfMass.position;
+            Rigidbody.centerOfMass = _centerOfMass.localPosition;
         }
 
         protected virtual void FixedUpdate()
