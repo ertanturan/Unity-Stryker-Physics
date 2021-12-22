@@ -4,6 +4,7 @@ using VehicleController;
 
 namespace PhysicsController
 {
+    using System;
     using System.Linq;
     using System.Text;
 
@@ -42,10 +43,24 @@ namespace PhysicsController
             Vector3 forceDirection = forward;
 
             float steepDotProduct = Vector3.Dot(forward, Vector3.forward);
+            steepDotProduct = Mathf.Clamp01(steepDotProduct);
             
             float forwardForceCoef = _StrykerController.ForwardForceCoef;
-            forwardForceCoef += forwardForceCoef * (1.2f - steepDotProduct);// steep throttle support
+            float slopeDegree = 1 - steepDotProduct;
+            // slopeDegree += 1;
+            slopeDegree *= Mathf.Pow(slopeDegree,1/50);
+
+            forwardForceCoef += forwardForceCoef * slopeDegree; // steep throttle support
+
+            if (Rigidbody.velocity.magnitude < 1.75f && steepDotProduct < 0.94f)
+            {
+                forwardForceCoef *= 1.7f;
+                forwardForceCoef += Rigidbody.mass / 1.5f;
+                Debug.Log("slope assist involved...");
+            }
+
             Debug.Log(forwardForceCoef.ToString("n2"));
+
 
             float normalizedKmh = Mathf.InverseLerp(0, _StrykerController.MaxSpeedInKmh,
                 _StrykerController.SpeedInKmh);
