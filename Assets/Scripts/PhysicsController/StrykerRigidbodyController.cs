@@ -7,18 +7,16 @@ namespace PhysicsController
     using System.Linq;
     using System.Text;
 
-    [RequireComponent(typeof(BaseVehicleInput), typeof(StrykerController))]
+    [RequireComponent(typeof(StrykerInput), typeof(StrykerController))]
     public class StrykerRigidbodyController : BaseRigidbodyController
     {
-        [SerializeField] private float _throttleCoef = 100f;
-        protected BaseVehicleInput _BaseVehicleInput;
+        protected StrykerInput _BaseVehicleInput;
         protected StrykerController _StrykerController;
-        public bool isIncreasing = false;
 
         protected override void Awake()
         {
             base.Awake();
-            _BaseVehicleInput = GetComponent<BaseVehicleInput>();
+            _BaseVehicleInput = GetComponent<StrykerInput>();
             _StrykerController = GetComponent<StrykerController>();
             Rigidbody.centerOfMass += new Vector3(0, 0, 1.0f);
         }
@@ -40,9 +38,34 @@ namespace PhysicsController
 
         private void HandleForwardForce()
         {
-            Vector3 forceToAdd = transform.forward * (_BaseVehicleInput.Forward * _throttleCoef * Time.fixedDeltaTime);
-            Rigidbody.AddForce(forceToAdd, ForceMode.Force);
-            isIncreasing = true;
+            var forward = transform.forward;
+            Vector3 forceDirection = forward;
+
+            float steepDotProduct = Vector3.Dot(forward, Vector3.forward);
+            
+            float forwardForceCoef = _StrykerController.ForwardForceCoef;
+            forwardForceCoef += forwardForceCoef * (1.2f - steepDotProduct);// steep throttle support
+            Debug.Log(forwardForceCoef.ToString("n2"));
+
+            float normalizedKmh = Mathf.InverseLerp(0, _StrykerController.MaxSpeedInKmh,
+                _StrykerController.SpeedInKmh);
+
+            float forwardPower = _StrykerController.AccelerationCurve.Evaluate(normalizedKmh) *
+                                 forwardForceCoef;
+
+            // Vector3 forceToAdd = transform.forward;
+            // // _throttleCoef
+            // float forceCoef = Time.fixedDeltaTime * _BaseVehicleInput.Forward;
+            // float accelerationEvaluation = _StrykerController.AccelerationCurve.Evaluate(forceCoef);
+            // // float inversedForceCoef =
+            // //     Mathf.InverseLerp(0, forceCoef, accelerationEvaluation);
+            //
+            // Debug.Log(forceCoef.ToString("n2") + "---" +
+            //           accelerationEvaluation.ToString("n2"));
+            //
+            // forceToAdd *= forceCoef;
+            // Rigidbody.AddForce(forceToAdd, ForceMode.Force);
+            Rigidbody.AddForce(forceDirection * (forwardPower * Time.fixedDeltaTime));
         }
 
         private void HandleWheels()
@@ -51,7 +74,7 @@ namespace PhysicsController
             {
                 _StrykerController.Wheels[i].WheelCollider.motorTorque = Mathf.Lerp(
                     _StrykerController.Wheels[i].WheelCollider.motorTorque,
-                    _BaseVehicleInput.Forward * _throttleCoef,
+                    _BaseVehicleInput.Forward * _StrykerController.ForwardForceCoef,
                     Time.fixedDeltaTime);
             }
         }
@@ -97,6 +120,7 @@ namespace PhysicsController
             }
         }
 
+
         private bool IsStrykerRollderOver()
         {
             return _StrykerController.Wheels.Count(x => !x.WheelCollider.isGrounded) >=
@@ -116,8 +140,10 @@ namespace PhysicsController
         {
             if (_StrykerController.SpeedInKmh > _StrykerController.MaxSpeedInKmh)
             {
-                Rigidbody.velocity = Rigidbody.velocity.normalized * _StrykerController.MaxSpeedInKmh /
-                                     StrykerController.SPEED_COEF;
+                var velocity = Rigidbody.velocity;
+                Rigidbody.velocity = Vector3.Lerp(velocity,
+                    velocity.normalized * _StrykerController.MaxSpeedInKmh /
+                    StrykerController.SPEED_COEF, Time.fixedDeltaTime * 5);
             }
         }
     }

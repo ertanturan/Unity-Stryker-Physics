@@ -17,7 +17,7 @@ namespace VehicleController
         public BaseRigidbodyController BaseRigidbodyController { get; private set; }
 
 
-        private void Awake()
+        protected virtual void Awake()
         {
             Wheels = GetComponentsInChildren<Wheel>().ToList();
             BaseVehicleInput = GetComponent<BaseVehicleInput>();
