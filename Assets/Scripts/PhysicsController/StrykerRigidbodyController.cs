@@ -44,11 +44,11 @@ namespace PhysicsController
 
             float steepDotProduct = Vector3.Dot(forward, Vector3.forward);
             steepDotProduct = Mathf.Clamp01(steepDotProduct);
-            
+
             float forwardForceCoef = _StrykerController.ForwardForceCoef;
             float slopeDegree = 1 - steepDotProduct;
             // slopeDegree += 1;
-            slopeDegree *= Mathf.Pow(slopeDegree,1/50);
+            slopeDegree *= Mathf.Pow(slopeDegree, 1 / 50);
 
             forwardForceCoef += forwardForceCoef * slopeDegree; // steep throttle support
 
@@ -59,8 +59,6 @@ namespace PhysicsController
                 Debug.Log("slope assist involved...");
             }
 
-            // Debug.Log(forwardForceCoef.ToString("n2"));
-
 
             float normalizedKmh = Mathf.InverseLerp(0, _StrykerController.MaxSpeedInKmh,
                 _StrykerController.SpeedInKmh);
@@ -68,18 +66,6 @@ namespace PhysicsController
             float forwardPower = _StrykerController.AccelerationCurve.Evaluate(normalizedKmh) *
                                  forwardForceCoef;
 
-            // Vector3 forceToAdd = transform.forward;
-            // // _throttleCoef
-            // float forceCoef = Time.fixedDeltaTime * _BaseVehicleInput.Forward;
-            // float accelerationEvaluation = _StrykerController.AccelerationCurve.Evaluate(forceCoef);
-            // // float inversedForceCoef =
-            // //     Mathf.InverseLerp(0, forceCoef, accelerationEvaluation);
-            //
-            // Debug.Log(forceCoef.ToString("n2") + "---" +
-            //           accelerationEvaluation.ToString("n2"));
-            //
-            // forceToAdd *= forceCoef;
-            // Rigidbody.AddForce(forceToAdd, ForceMode.Force);
             Rigidbody.AddForce(forceDirection * (forwardPower * Time.fixedDeltaTime));
         }
 
