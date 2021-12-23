@@ -39,26 +39,26 @@ namespace PhysicsController
 
         private void HandleForwardForce()
         {
-            var forward = transform.forward;
+            Transform thisTransform = transform;
+            var forward = thisTransform.forward;
             Vector3 forceDirection = forward;
 
-            float steepDotProduct = Vector3.Dot(forward, Vector3.forward);
-            steepDotProduct = Mathf.Clamp01(steepDotProduct);
-
+            float degree = Vector3.Angle(thisTransform.up, Vector3.forward) - 90;
+            float inversedDegree = Mathf.InverseLerp(0, 45, degree);
             float forwardForceCoef = _StrykerController.ForwardForceCoef;
-            float slopeDegree = 1 - steepDotProduct;
-            // slopeDegree += 1;
-            slopeDegree *= Mathf.Pow(slopeDegree, 1 / 50);
+            float extraPowerForSlope = 1800f;
 
-            forwardForceCoef += forwardForceCoef * slopeDegree; // steep throttle support
 
-            if (Rigidbody.velocity.magnitude < 1.75f && steepDotProduct < 0.94f)
+            // forwardForceCoef += forwardForceCoef ; // steep throttle support
+            if (Rigidbody.velocity.magnitude < 1.75f && degree > 6)
             {
-                forwardForceCoef *= 1.7f;
-                forwardForceCoef += Rigidbody.mass / 1.5f;
+                // forwardForceCoef *= 1.7f;
+                // forwardForceCoef += Rigidbody.mass / 1.5f;
+                forwardForceCoef += extraPowerForSlope * inversedDegree;
                 Debug.Log("slope assist involved...");
             }
 
+            Debug.Log(forwardForceCoef);
 
             float normalizedKmh = Mathf.InverseLerp(0, _StrykerController.MaxSpeedInKmh,
                 _StrykerController.SpeedInKmh);
