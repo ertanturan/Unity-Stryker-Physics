@@ -9477,19 +9477,19 @@ WheelCollider:
   m_Center: {x: 0, y: 0.2, z: 0}
   m_Radius: 0.58
   m_SuspensionSpring:
-    spring: 90000
-    damper: 9000
+    spring: 35000
+    damper: 4500
     targetPosition: 0.5
   m_SuspensionDistance: 0.4
   m_ForceAppPointDistance: 0
   m_Mass: 100
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 1
+    m_ExtremumSlip: 3
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 2.5
+    m_Stiffness: 4
   m_SidewaysFriction:
     m_ExtremumSlip: 1
     m_ExtremumValue: 1
@@ -13899,11 +13899,11 @@ WheelCollider:
   m_Mass: 100
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 1
+    m_ExtremumSlip: 3
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 5
+    m_Stiffness: 8
   m_SidewaysFriction:
     m_ExtremumSlip: 1
     m_ExtremumValue: 1
@@ -14070,11 +14070,11 @@ WheelCollider:
   m_Mass: 100
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 1
+    m_ExtremumSlip: 3
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 5
+    m_Stiffness: 8
   m_SidewaysFriction:
     m_ExtremumSlip: 1
     m_ExtremumValue: 1
@@ -14430,11 +14430,11 @@ WheelCollider:
   m_Mass: 100
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 1
+    m_ExtremumSlip: 3
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 2.5
+    m_Stiffness: 4
   m_SidewaysFriction:
     m_ExtremumSlip: 1
     m_ExtremumValue: 1
@@ -19667,11 +19667,11 @@ WheelCollider:
   m_Mass: 100
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 1
+    m_ExtremumSlip: 3
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 2.5
+    m_Stiffness: 4
   m_SidewaysFriction:
     m_ExtremumSlip: 1
     m_ExtremumValue: 1
@@ -23510,11 +23510,11 @@ WheelCollider:
   m_Mass: 100
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 1
+    m_ExtremumSlip: 3
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 5
+    m_Stiffness: 8
   m_SidewaysFriction:
     m_ExtremumSlip: 1
     m_ExtremumValue: 1
@@ -26618,11 +26618,11 @@ WheelCollider:
   m_Mass: 100
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 1
+    m_ExtremumSlip: 3
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 2.5
+    m_Stiffness: 4
   m_SidewaysFriction:
     m_ExtremumSlip: 1
     m_ExtremumValue: 1
@@ -27500,7 +27500,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1602539516
 Transform:
   m_ObjectHideFlags: 0
@@ -28713,11 +28713,11 @@ WheelCollider:
   m_Mass: 100
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 1
+    m_ExtremumSlip: 3
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 5
+    m_Stiffness: 8
   m_SidewaysFriction:
     m_ExtremumSlip: 1
     m_ExtremumValue: 1

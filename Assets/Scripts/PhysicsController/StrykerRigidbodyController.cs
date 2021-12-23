@@ -59,7 +59,7 @@ namespace PhysicsController
                 Debug.Log("slope assist involved...");
             }
 
-            Debug.Log(forwardForceCoef.ToString("n2"));
+            // Debug.Log(forwardForceCoef.ToString("n2"));
 
 
             float normalizedKmh = Mathf.InverseLerp(0, _StrykerController.MaxSpeedInKmh,
