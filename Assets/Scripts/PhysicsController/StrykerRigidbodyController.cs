@@ -48,14 +48,9 @@ namespace PhysicsController
             float forwardForceCoef = _StrykerController.ForwardForceCoef;
             float extraPowerForSlope = 1800f;
 
-
-            // forwardForceCoef += forwardForceCoef ; // steep throttle support
             if (Rigidbody.velocity.magnitude < 1.75f && degree > 6)
             {
-                // forwardForceCoef *= 1.7f;
-                // forwardForceCoef += Rigidbody.mass / 1.5f;
                 forwardForceCoef += extraPowerForSlope * inversedDegree;
-                Debug.Log("slope assist involved...");
             }
 
             Debug.Log(forwardForceCoef);
