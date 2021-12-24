@@ -8,9 +8,9 @@ namespace Camera
     public class FollowCamera : MonoBehaviour
     {
         [SerializeField] private Transform _targetTransform;
+
         private Vector3 _offset;
-        [SerializeField] private float _distance = 15f;
-        [SerializeField] private float _translationSpeed = 10f;
+
         [SerializeField] private float _rotationSpeed = 10f;
 
 
@@ -26,21 +26,25 @@ namespace Camera
 
         private void HandleCamera()
         {
+            float xAxis = Input.GetAxis("Mouse X") * _rotationSpeed;
+            float yAxis = Input.GetAxis("Mouse Y") * _rotationSpeed;
+
+            Quaternion xTurnAngle =
+                Quaternion.AngleAxis(xAxis, Vector3.up);
+
+            Quaternion yTurnAngle = Quaternion.AngleAxis(yAxis, Vector3.left);
+
+            _offset = xTurnAngle * _offset;
+            _offset = yTurnAngle * _offset;
+
+            Vector3 newPosition = _offset + _targetTransform.position;
+
+            if (newPosition.y > 2f)
+            {
+                transform.position = newPosition;
+            }
+
             transform.LookAt(_targetTransform);
-
-            Vector3 rotateVector = Vector3.zero;
-            rotateVector = Vector3.right * (Time.deltaTime * Input.GetAxis("Mouse X") * _rotationSpeed);
-            // rotateVector += Vector3.up * (Time.deltaTime * Input.GetAxis("Mouse Y") * _rotationSpeed);
-            transform.Translate(rotateVector);
-
-            //
-            // Vector3 newPosition = _targetTransform.position + _offset;
-            // transform.position = newPosition;
-            // Vector3 axis = Vector3.zero;
-            // axis.x =-1* Input.GetAxis("Mouse Y") * Time.deltaTime;
-            // axis.y = Input.GetAxis("Mouse X") * Time.deltaTime;
-            // transform.Rotate(axis,_rotationSpeed * Time.deltaTime);
-            //
         }
     }
 }
