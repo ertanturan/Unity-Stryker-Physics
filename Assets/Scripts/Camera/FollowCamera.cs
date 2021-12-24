@@ -26,6 +26,8 @@ namespace Camera
 
         private void HandleCamera()
         {
+            var thisTransform = transform;
+
             float xAxis = Input.GetAxis("Mouse X") * _rotationSpeed;
             float yAxis = Input.GetAxis("Mouse Y") * _rotationSpeed;
 
@@ -39,12 +41,8 @@ namespace Camera
 
             Vector3 newPosition = _offset + _targetTransform.position;
 
-            if (newPosition.y > 2f)
-            {
-                transform.position = newPosition;
-            }
-
-            transform.LookAt(_targetTransform);
+            thisTransform.position = newPosition;
+            thisTransform.LookAt(_targetTransform);
         }
     }
 }
