@@ -53,7 +53,7 @@ namespace PhysicsController
                 forwardForceCoef += extraPowerForSlope * inversedDegree;
             }
 
-            Debug.Log(forwardForceCoef);
+            // Debug.Log(forwardForceCoef);
 
             float normalizedKmh = Mathf.InverseLerp(0, _StrykerController.MaxSpeedInKmh,
                 _StrykerController.SpeedInKmh);
