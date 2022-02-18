@@ -11,3 +11,10 @@ Fundamental implementation of 8x8 Vehicle (Stryker) movement mechanics.
 
 # Youtube Video 
 [![Stryker Physics](https://img.youtube.com/vi/4JcoubAwtnc/0.jpg)](https://www.youtube.com/watch?v=4JcoubAwtnc "Stryker Physics")
+
+# Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+# ENJOY !
